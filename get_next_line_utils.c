@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/09/27 01:17:40 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/09/27 17:06:12 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,38 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (src_size);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, size_t len_s2)
 {
 	char	*res;
 	size_t	res_size;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	res_size = ft_strlen(s1) + ft_strlen(s2);
+	res_size = ft_strlen(s1) + len_s2;
 	res = (char *) malloc(res_size + 1);
 	if (res == NULL)
 		return (NULL);
 	ft_strlcpy(res, s1, ft_strlen(s1) + 1);
 	ft_strlcat(res, s2, res_size + 1);
+	return (res);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*res;
+	size_t	i;
+	size_t	byte_size;
+
+	byte_size = ft_strlen(s1);
+	res = malloc(byte_size + 1);
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (i < byte_size)
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	res[i] = '\0';
 	return (res);
 }
