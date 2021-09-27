@@ -10,9 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
-	return (NULL);
+	char *res;
+	char buf[BUFFER_SIZE + 1];
+
+	read(fd, buf, BUFFER_SIZE);
+	res = malloc(ft_strlen(buf) + 1);
+	if (res == NULL)	return NULL;
+	ft_strlcpy(res, buf, ft_strlen(buf) + 1);
+	//if buf does not have a '\n', then save curr buf to res, and read again and concat it to the saved string
+	//do this process until buf has a '\n'
+	return (res);
 }
