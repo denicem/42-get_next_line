@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/09/27 23:14:21 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/09/28 23:16:55 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main() {
 	//char *buff;
 	int fd = open("test1.txt", O_RDWR);
-	// int i = 0;
+	int i = 0;
 	// int j;
 	char *line;
 	// while (i < 8)
@@ -27,9 +27,11 @@ int main() {
 	// 	//printf("\n");
 	// 	i++;
 	// }
-	while ((line = get_next_line(fd)))
+	while (i < 3)
 	{
+		line = get_next_line(fd);
 		printf("%s", line);
+		i++;
 	}
 	//system("leaks a.out");
 	// char *line = get_next_line(fd);

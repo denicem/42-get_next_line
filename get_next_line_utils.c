@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/09/27 17:06:12 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/09/28 21:22:00 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*ft_strjoin(char const *s1, char const *s2, size_t len_s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	res_size = ft_strlen(s1) + len_s2;
+	res_size = ft_strlen(s1) + len_s2 + 1;
 	res = (char *) malloc(res_size + 1);
 	if (res == NULL)
 		return (NULL);
