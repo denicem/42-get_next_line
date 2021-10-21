@@ -6,11 +6,21 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/09/28 21:22:00 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/18 22:31:25 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	int	res;
+
+	res = 0;
+	while (s[res] != '\0')
+		res++;
+	return (res);
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -33,68 +43,50 @@ char	*ft_strchr(const char *s, int c)
 	return (res);
 }
 
-size_t	ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2, int len_s2)
 {
-	int	res;
+	char	*res;
+	int		i;
+	int		j;
 
-	res = 0;
-	while (s[res] != '\0')
-		res++;
+	res = (char *) malloc(ft_strlen(s1) + len_s2 + 1);
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	if (s1[0] != '\0')
+	{
+		while (s1[i])
+		{
+			res[i] = s1[i];
+			i++;
+		}
+	}
+	while (s2[j] && j < len_s2)
+	{
+		res[i + j] = s2[j];
+		j++;
+	}
+	res[i + j] = '\0';
 	return (res);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	dst_len;
-	size_t	src_len;
+	void	*res;
+	size_t	byte_size;
 	size_t	i;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	i = 0;
-	if (dst_len >= dstsize)
-		return (src_len + dstsize);
-	while (dst_len + i < dstsize - 1 && src[i])
-	{
-		dst[dst_len + i] = src[i];
-		i++;
-	}
-	dst[dst_len + i] = '\0';
-	return (dst_len + src_len);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	src_size;
-	size_t	i;
-
-	src_size = ft_strlen(src);
-	i = 0;
-	if (dstsize > 0)
-	{
-		while (i < dstsize - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (src_size);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2, size_t len_s2)
-{
-	char	*res;
-	size_t	res_size;
-
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	res_size = ft_strlen(s1) + len_s2 + 1;
-	res = (char *) malloc(res_size + 1);
+	byte_size = count * size;
+	res = malloc(byte_size);
 	if (res == NULL)
 		return (NULL);
-	ft_strlcpy(res, s1, ft_strlen(s1) + 1);
-	ft_strlcat(res, s2, res_size + 1);
+	i = 0;
+	while (i < byte_size)
+	{
+		((unsigned char *) res)[i] = 0;
+		i++;
+	}
 	return (res);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:22:36 by dmontema          #+#    #+#             */
-/*   Updated: 2021/09/27 17:06:21 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/21 23:52:56 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # include	<fcntl.h>
 
 char	*get_next_line(int fd);
-char	*ft_strjoin(char const *s1, char const *s2, size_t len_s2);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*readLine(int fd, char **storage);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2, int len_s2);
+void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 
 #	endif
