@@ -6,75 +6,55 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/22 23:55:22 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/24 03:43:54 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <errno.h>
+
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h> 
 
 int main() {
 	// char *buff = malloc(BUFFER_SIZE);
+
+	/*************	OWN TEST FILES	***************/
 	// int fd = open("test1.txt", O_RDWR);
-	// int fd2 = open("test2.txt", O_RDWR);
-	int fd3 = open("test3.txt", O_RDWR);
-	//read(fd, buff, BUFFER_SIZE);
-	// int i = 0;
-	// while ((i = read(fd, buff, BUFFER_SIZE)))
-	// 	printf("%d\n", i);
-	// printf("%d\n", i);
-	// printf("%d\n%s", fd, ft_strchr(buff, '\n'));
+	// int fd = open("test2.txt", O_RDWR);
+	// int fd = open("test3.txt", O_RDWR);
+	/*************	END TEST FILES	***************/
+
+	/*************	TRI TEST FILES	***************/
+	// int fd = open("tri/files/empty", O_RDWR);
+	// int fd = open("tri/files/41_no_nl", O_RDWR);
+	// int fd = open("tri/files/41_with_nl", O_RDWR);
+	// int fd = open("tri/files/42_no_nl", O_RDWR);
+	// int fd = open("tri/files/42_with_nl", O_RDWR);
+	// int fd = open("tri/files/43_no_nl", O_RDWR);
+	int fd = open("tri/files/43_with_nl", O_RDWR);
+	// int fd = open("tri/files/alternate_line_nl_no_nl", O_RDWR); //segfault 3rd line
+	// int fd = open("tri/files/alternate_line_nl_with_nl", O_RDWR); //segfault 3rd line
+	// int fd = open("tri/files/big_line_no_nl", O_RDWR);
+	// int fd = open("tri/files/big_line_with_nl", O_RDWR);
+	// int fd = open("tri/files/multiple_line_no_nl", O_RDWR);
+	// int fd = open("tri/files/multiple_line_with_nl", O_RDWR);
+	// int fd = open("tri/files/multiple_nlx5", O_RDWR);
+	// int fd = open("tri/files/nl", O_RDWR);
+	/*************	END TEST FILES	***************/
+
 	char *line;
-	// while ((line = get_next_line(fd)) != NULL)
-	// 	printf("%s", line);
-	// printf("\n");
-	// while ((line = get_next_line(fd2)) != NULL)
-	// 	printf("%s", line);
-	// printf("\n");
-	while ((line = get_next_line(fd3)) != NULL)
+	// line = get_next_line(fd);
+	// printf("%s", line);
+	while ((line = get_next_line(fd)))
 		printf("%s", line);
-	system("leaks a.out");
-	
-	// printf("%s", get_next_line(fd));
+	// printf("\n%s\n", line);
 
-	
-	//printf("%zd\n", read(fd, buff, BUFFER_SIZE));
-	// if ((read(fd, buff, BUFFER_SIZE)) == -1)
-	// 	printf("%s\n", strerror(errno));
+	// char *s;
+	// s = get_next_line(-1);
+	// s = get_next_line(1000);
+	// printf("%s", s);
 
-	// while (i++ < 9)
-	// 	printf ("%d: %s", i, get_next_line(fd));
-		
-	// int i = 0;
-	// int j;
-	// char *line;
-	// while (i < 8)
-	// {
-	// 	j = 0;
-	// 	line = get_next_line(fd);
-	// 	while (line[j])
-	// 		printf("%c", line[j++]);
-	// 	//printf("\n");
-	// 	i++;
-	// }
-	// while (i < 3)
-	// {
-	// 	line = get_next_line(fd);
-	// 	printf("%s", line);
-	// 	i++;
-	// }
-	// while ((line = get_next_line(fd)))
-	// 	printf("%s", line);
-	
-	//system("leaks a.out");
-	// char *line = get_next_line(fd);
-	// printf("%s\n", line);
-	// line = get_next_line(fd);
-	// printf("%s\n", line);
-	// line = get_next_line(fd);
-	// printf("%s\n", line);
-	//int readBytes = read(fd, buff, BUFFER_SIZE);
-	//printf("%d %d\n", fd, readBytes);
-	//printf("%s\n", buff);
+	// system("leaks a.out");
 	return 0;
 }

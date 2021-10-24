@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/22 22:23:53 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/23 22:50:45 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 	size_t	byte_size;
 
+	if (s1 == NULL)
+		return (NULL);
 	byte_size = ft_strlen(s1);
 	res = malloc(byte_size + 1);
 	if (res == NULL)
