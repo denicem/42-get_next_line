@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/24 03:43:54 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/24 22:45:20 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int main() {
 	// int fd = open("tri/files/42_no_nl", O_RDWR);
 	// int fd = open("tri/files/42_with_nl", O_RDWR);
 	// int fd = open("tri/files/43_no_nl", O_RDWR);
-	int fd = open("tri/files/43_with_nl", O_RDWR);
-	// int fd = open("tri/files/alternate_line_nl_no_nl", O_RDWR); //segfault 3rd line
-	// int fd = open("tri/files/alternate_line_nl_with_nl", O_RDWR); //segfault 3rd line
+	// int fd = open("tri/files/43_with_nl", O_RDWR);
+	// int fd = open("tri/files/alternate_line_nl_no_nl", O_RDWR);
+	int fd = open("tri/files/alternate_line_nl_with_nl", O_RDWR);
 	// int fd = open("tri/files/big_line_no_nl", O_RDWR);
 	// int fd = open("tri/files/big_line_with_nl", O_RDWR);
 	// int fd = open("tri/files/multiple_line_no_nl", O_RDWR);
@@ -47,7 +47,10 @@ int main() {
 	// line = get_next_line(fd);
 	// printf("%s", line);
 	while ((line = get_next_line(fd)))
+	{
 		printf("%s", line);
+		printf("\n------------\n");
+	}
 	// printf("\n%s\n", line);
 
 	// char *s;
