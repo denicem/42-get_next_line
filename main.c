@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:42:45 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:57:15 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main() {
 	// char *buff = malloc(BUFFER_SIZE);
 
 	/*************	OWN TEST FILES	***************/
-	int fd = open("test1.txt", O_RDWR);
-	// int fd = open("test2.txt", O_RDWR);
+	// int fd = open("test1.txt", O_RDWR);
+	int fd = open("test2.txt", O_RDWR);
 	// int fd = open("test3.txt", O_RDWR);
 	/*************	END TEST FILES	***************/
 
@@ -58,6 +58,8 @@ int main() {
 	// s = get_next_line(-1);
 	// s = get_next_line(1000);
 	// printf("%s", s);
+
+	// BONUS TESTS:
 
 	// system("leaks a.out");
 	return 0;

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:22:36 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:52:00 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:46:38 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include	<stdlib.h>
 # include	<unistd.h>
+# include	<limits.h>
 # include	<stdio.h>
 
 char	*get_next_line(int fd);
