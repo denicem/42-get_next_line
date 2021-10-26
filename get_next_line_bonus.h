@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:22:36 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:46:38 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:06:04 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define	GET_NEXT_LINE_BONUS_H
 
 # include	<stdlib.h>
 # include	<unistd.h>
 # include	<limits.h>
-# include	<stdio.h>
 
 char	*get_next_line(int fd);
 int		prepareVars(int fd, char **storage, char **readbuf, char **res);

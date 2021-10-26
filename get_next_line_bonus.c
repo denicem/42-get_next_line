@@ -6,17 +6,17 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:17:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:55:38 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:12:45 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include	"get_next_line_bonus.h"
+#include	"get_next_line_bonus.h"
 
 # define BUFFER_SIZE 42
 
 char	*getRes(char **storage, char **readbuf, char **res)
 {
-	char *newl;
+	char	*newl;
 
 	if (**res == 0)
 	{
@@ -88,8 +88,9 @@ int	prepareVars(int fd, char **storage, char **readbuf, char **res)
 char	*get_next_line(int fd)
 {
 	static char	*storage[OPEN_MAX];
-	char 		*readbuf;
-	char 		*res;
+	char		*readbuf;
+	char		*res;
+
 	if (!prepareVars(fd, &(storage[fd]), &readbuf, &res))
 		return (NULL);
 	res = readLine(fd, &(storage[fd]), &readbuf, &res);
