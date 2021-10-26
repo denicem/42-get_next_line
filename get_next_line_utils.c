@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/23 22:50:45 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:36:26 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,25 @@ size_t	ft_strlen(const char *s)
 	res = 0;
 	while (s[res] != '\0')
 		res++;
+	return (res);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*res;
+	size_t	byte_size;
+	size_t	i;
+
+	byte_size = count * size;
+	res = malloc(byte_size);
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (i < byte_size)
+	{
+		((char *)res)[i] = 0;
+		i++;
+	}
 	return (res);
 }
 
@@ -49,7 +68,7 @@ char	*ft_strjoin(char const *s1, char const *s2, int len_s2)
 	int		i;
 	int		j;
 
-	res = (char *) malloc(ft_strlen(s1) + len_s2 + 1);
+	res = (char *) ft_calloc(ft_strlen(s1) + len_s2 + 1, 1);
 	if (res == NULL)
 		return (NULL);
 	i = 0;
@@ -80,7 +99,7 @@ char	*ft_strdup(const char *s1)
 	if (s1 == NULL)
 		return (NULL);
 	byte_size = ft_strlen(s1);
-	res = malloc(byte_size + 1);
+	res = ft_calloc(byte_size + 1, 1);
 	if (res == NULL)
 		return (NULL);
 	i = 0;

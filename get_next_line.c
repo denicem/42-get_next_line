@@ -6,12 +6,18 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:17:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/24 23:22:34 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:41:04 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+# include	"get_next_line.h"
+# include	<stdio.h>
+# include	<stdlib.h>
+# include	<unistd.h>
+# include	<limits.h>
+# include	<fcntl.h>
+
+# define BUFFER_SIZE 42
 
 char	*getRes(char **storage, char **readbuf, char **res)
 {
@@ -20,7 +26,9 @@ char	*getRes(char **storage, char **readbuf, char **res)
 	if (**res == 0)
 	{
 		free(*readbuf);
+		**readbuf = 0;
 		free(*res);
+		*res = NULL;
 		return (NULL);
 	}
 	newl = ft_strchr(*res, '\n');
@@ -30,6 +38,7 @@ char	*getRes(char **storage, char **readbuf, char **res)
 		*(newl + 1) = 0;
 	}
 	free(*readbuf);
+	**readbuf = 0;
 	return (*res);
 }
 
@@ -37,18 +46,20 @@ char	*readLine(int fd, char **storage, char **readbuf, char **res)
 {
 	int		bytesRead;
 	char	*tmp;
-	if (ft_strchr(*res, '\n'))
-		return (getRes(storage, readbuf, res));
-	bytesRead = BUFFER_SIZE;
-	while (bytesRead == BUFFER_SIZE && !ft_strchr(*readbuf, '\n'))
+
+	if (!ft_strchr(*res, '\n'))
 	{
-		bytesRead = read(fd, *readbuf, BUFFER_SIZE);
-		if (bytesRead <= 0)
-			break ;
-		(*readbuf)[bytesRead] = 0;
-		tmp = *res;
-		*res = ft_strjoin(*res, *readbuf, bytesRead);
-		free(tmp);
+		bytesRead = BUFFER_SIZE;
+		while (bytesRead == BUFFER_SIZE && !ft_strchr(*readbuf, '\n'))
+		{
+			bytesRead = read(fd, *readbuf, BUFFER_SIZE);
+			(*readbuf)[bytesRead] = 0;
+			if (bytesRead <= 0)
+				break ;
+			tmp = *res;
+			*res = ft_strjoin(*res, *readbuf, bytesRead);
+			free(tmp);
+		}
 	}
 	return (getRes(storage, readbuf, res));
 }
@@ -58,24 +69,23 @@ int	prepareVars(int fd, char **storage, char **readbuf, char **res)
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (0);
 	if (*storage)
+	{
 		*res = ft_strdup(*storage);
+		free(*storage);
+		*storage = NULL;
+	}
 	else
 	{
-		*res = malloc(1);
+		*res = ft_calloc(1, 1);
+		if (*res == NULL)
+			return (0);
 		**res = 0;
 	}
-	if (*res == NULL)
-		return (0);
-	*readbuf = malloc(BUFFER_SIZE + 1);
+	*readbuf = ft_calloc(BUFFER_SIZE + 1, 1);
 	if (*readbuf == NULL)
 	{
 		free(*res);
 		return (0);
-	}
-	if (**res)
-	{
-		free(*storage);
-		*storage = 0;
 	}
 	return (1);
 }
