@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:57:15 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/29 19:43:47 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ int main() {
 	/*************	END TEST FILES	***************/
 
 	/*************	TRI TEST FILES	***************/
-	// int fd = open("tri/files/empty", O_RDWR);
-	// int fd = open("tri/files/41_no_nl", O_RDWR);
-	// int fd = open("tri/files/41_with_nl", O_RDWR);
-	// int fd = open("tri/files/42_no_nl", O_RDWR);
-	// int fd = open("tri/files/42_with_nl", O_RDWR);
-	// int fd = open("tri/files/43_no_nl", O_RDWR);
-	// int fd = open("tri/files/43_with_nl", O_RDWR);
-	// int fd = open("tri/files/alternate_line_nl_no_nl", O_RDWR);
-	// int fd = open("tri/files/alternate_line_nl_with_nl", O_RDWR);
-	// int fd = open("tri/files/big_line_no_nl", O_RDWR);
-	// int fd = open("tri/files/big_line_with_nl", O_RDWR);
-	// int fd = open("tri/files/multiple_line_no_nl", O_RDWR);
-	// int fd = open("tri/files/multiple_line_with_nl", O_RDWR);
-	// int fd = open("tri/files/multiple_nlx5", O_RDWR);
-	// int fd = open("tri/files/nl", O_RDWR);
+	// int fd = open("files/empty", O_RDWR);
+	// int fd = open("files/41_no_nl", O_RDWR);
+	// int fd = open("files/41_with_nl", O_RDWR);
+	// int fd = open("files/42_no_nl", O_RDWR);
+	// int fd = open("files/42_with_nl", O_RDWR);
+	// int fd = open("files/43_no_nl", O_RDWR);
+	// int fd = open("files/43_with_nl", O_RDWR);
+	// int fd = open("files/alternate_line_nl_no_nl", O_RDWR);
+	// int fd = open("files/alternate_line_nl_with_nl", O_RDWR);
+	// int fd = open("files/big_line_no_nl", O_RDWR);
+	// int fd = open("files/big_line_with_nl", O_RDWR);
+	// int fd = open("files/multiple_line_no_nl", O_RDWR);
+	// int fd = open("files/multiple_line_with_nl", O_RDWR);
+	// int fd = open("files/multiple_nlx5", O_RDWR);
+	// int fd = open("files/nl", O_RDWR);
 	/*************	END TEST FILES	***************/
 
 	char *line;

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:17:40 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 19:36:26 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/28 18:18:53 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strchr(const char *s, int c)
 	return (res);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2, int len_s2)
+char	*ft_strjoin(char *s1, char *s2, int len_s2)
 {
 	char	*res;
 	int		i;
@@ -87,6 +87,7 @@ char	*ft_strjoin(char const *s1, char const *s2, int len_s2)
 		j++;
 	}
 	res[i + j] = '\0';
+	free(s1);
 	return (res);
 }
 

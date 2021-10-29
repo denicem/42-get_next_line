@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 20:17:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/26 20:12:45 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/10/29 19:48:34 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*getRes(char **storage, char **readbuf, char **res)
 	if (**res == 0)
 	{
 		free(*readbuf);
-		**readbuf = 0;
+		*readbuf = 0;
 		free(*res);
 		*res = NULL;
 		return (NULL);
@@ -33,14 +33,13 @@ char	*getRes(char **storage, char **readbuf, char **res)
 		*(newl + 1) = 0;
 	}
 	free(*readbuf);
-	**readbuf = 0;
+	*readbuf = 0;
 	return (*res);
 }
 
 char	*readLine(int fd, char **storage, char **readbuf, char **res)
 {
 	int		bytesRead;
-	char	*tmp;
 
 	if (!ft_strchr(*res, '\n'))
 	{
@@ -48,12 +47,10 @@ char	*readLine(int fd, char **storage, char **readbuf, char **res)
 		while (bytesRead == BUFFER_SIZE && !ft_strchr(*readbuf, '\n'))
 		{
 			bytesRead = read(fd, *readbuf, BUFFER_SIZE);
-			(*readbuf)[bytesRead] = 0;
 			if (bytesRead <= 0)
 				break ;
-			tmp = *res;
+			(*readbuf)[bytesRead] = 0;
 			*res = ft_strjoin(*res, *readbuf, bytesRead);
-			free(tmp);
 		}
 	}
 	return (getRes(storage, readbuf, res));
@@ -87,7 +84,7 @@ int	prepareVars(int fd, char **storage, char **readbuf, char **res)
 
 char	*get_next_line(int fd)
 {
-	static char	*storage[OPEN_MAX];
+	static char	*storage[OPEN_MAX]; //due to some issues with the Tripouille Tester on docker, OPEN_MAX is not possible and should be therefore replaced by 10240.
 	char		*readbuf;
 	char		*res;
 
