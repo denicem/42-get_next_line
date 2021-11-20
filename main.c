@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 01:22:00 by dmontema          #+#    #+#             */
-/*   Updated: 2021/10/29 19:43:47 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/19 23:14:58 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main() {
 	// char *buff = malloc(BUFFER_SIZE);
 
 	/*************	OWN TEST FILES	***************/
-	// int fd = open("test1.txt", O_RDWR);
-	int fd = open("test2.txt", O_RDWR);
-	// int fd = open("test3.txt", O_RDWR);
+	// int fd = open("files/test1.txt", O_RDWR);
+	int fd = open("files/test2.txt", O_RDWR);
+	// int fd = open("files/test3.txt", O_RDWR);
 	/*************	END TEST FILES	***************/
 
 	/*************	TRI TEST FILES	***************/
@@ -44,23 +44,28 @@ int main() {
 	/*************	END TEST FILES	***************/
 
 	char *line;
-	// int i = 0;
-	// line = get_next_line(fd);
-	// printf("%s", line);
 	while ((line = get_next_line(fd)))
-	{
 		printf("%s", line);
-		// printf("\n------------\n");
-	}
-	// printf("\n%s\n", line);
 
 	// char *s;
 	// s = get_next_line(-1);
 	// s = get_next_line(1000);
 	// printf("%s", s);
 
-	// BONUS TESTS:
+	// BONUS TESTS: TODO: doesn't work
+	// int fd1 = open("test1.txt", O_RDONLY);
+	// int fd2 = open("test2.txt", O_RDONLY);
+	// int fd_bonus = fd1;
+	// for (int i = 0; i < 6; i++)
+	// {
+	// 	printf("FD(%d): %s", fd_bonus, get_next_line(fd_bonus));
+	// 	if (fd_bonus == fd1)
+	// 		fd_bonus = fd2;
+	// 	if (fd_bonus == fd2)
+	// 		fd_bonus = fd1;
+	// }
 
+	// free(line);
 	// system("leaks a.out");
 	return 0;
 }
